@@ -78,6 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Assets\Scripts\AudioRec.cs" />
+    <Compile Include="Assets\Assets\Scripts\GameControl.cs" />
+    <Compile Include="Assets\Assets\Scripts\MicrophoneListener.cs" />
+    <Compile Include="Assets\Assets\Scripts\QuickStart.cs" />
+    <Compile Include="Assets\Assets\Scripts\SavWav.cs" />
+    <Compile Include="Assets\Assets\Scripts\SpeechToText.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scenes\Scripts\TestScript.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AmbienceEmitter.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AudioManager.cs" />
