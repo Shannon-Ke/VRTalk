@@ -5,7 +5,13 @@ using UnityEngine;
 public class AudioRec : MonoBehaviour {
 	AudioClip myAudioClip; 
  
-     void Start() {}
+    void Start() {
+
+        foreach (string device in Microphone.devices) {
+            
+            Debug.Log("Name: " + device);
+        }
+     }
      void Update () {}
      
     void OnGUI()

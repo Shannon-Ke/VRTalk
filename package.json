@@ -1,0 +1,32 @@
+{
+  "name": "vrtalk",
+  "version": "1.0.0",
+  "description": "vr talk",
+  "main": "Speech.js",
+  "dependencies": {
+    "@google-cloud/speech": "^2.1.1",
+    "@google-cloud/text-to-speech": "^0.3.0",
+    "cleverbot.io": "^1.0.4",
+    "dotenv": "^6.1.0",
+    "npm-watch": "^0.4.0",
+    "superagent": "^4.0.0-beta.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "tape ./VroomVR/Assets/*.wav",
+    "watch": "npm-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shannon-Ke/VRTalk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shannon-Ke/VRTalk/issues"
+  },
+  "homepage": "https://github.com/Shannon-Ke/VRTalk#readme",
+  "watch": {
+    "test": "./VroomVR/Assets/*.wav"
+  }
+}
