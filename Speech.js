@@ -41,7 +41,7 @@ const audio = {
 };
 const config = {
   encoding: 'LINEAR16',
-  sampleRateHertz: 44100,
+  sampleRateHertz: 10000,
   languageCode: 'en-US',
 };
 const request = {

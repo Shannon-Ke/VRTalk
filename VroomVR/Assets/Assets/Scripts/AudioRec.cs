@@ -3,19 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class AudioRec : MonoBehaviour {
+    public Text text;
 	AudioClip myAudioClip; 
     public AudioSource UnityChan;
     public AudioClip UnitySpeaks;
     public int filecount;
-    
+    OVRManager ovrManager;
     void Start() {
+        //MicInput.Instance.StopMicrophone();
+        //myAudioClip = null;
         filecount = 0;
        Application.runInBackground = true;
      }
      void Update () {
+        // if (!Microphone.IsRecording(null) && myAudioClip && MicInput.MicLoudnessinDecibels < 0) {
+        //     Microphone.End(null);
+        //     SavWav.Save("audio", myAudioClip);
+        //     myAudioClip = null;
+                
+        //     } else {
+        //         myAudioClip = Microphone.Start ( null, false, 10, 44100 );
+
+
+        //     }
+        // MicInput.Instance.StopMicrophone();
+        
        ReadString();
         AssetDatabase.Refresh();
          
@@ -32,7 +48,7 @@ public class AudioRec : MonoBehaviour {
             //UnityChan.clip = (AudioClip) Resources.Load<AudioClip>(path) as AudioClip;
             AudioClip currClip = Resources.Load<AudioClip>(path);
             Debug.Log((AudioClip)Resources.Load(path, typeof(AudioClip)));
-            UnityChan.pitch = 1.3f;
+            UnityChan.pitch = 1.2f;
             UnityChan.PlayOneShot(currClip);
             
            // WriteString();
@@ -64,18 +80,32 @@ public class AudioRec : MonoBehaviour {
     }
     void OnGUI()
     {
-         if (GUI.Button(new Rect(10,10,60,50),"Record"))
+        OVRInput.Update();
+       if (OVRInput.GetDown(OVRInput.RawButton.A))
          { 
-             myAudioClip = Microphone.Start ( null, false, 10, 44100 );
-             
+            Debug.Log("Button pressed");
+             myAudioClip = Microphone.Start ( null, false, 8, 10000 );
+             text.text = "Recording";
 
          }
-         if (GUI.Button(new Rect(10,70,60,50),"Save"))
+         if (OVRInput.GetDown(OVRInput.RawButton.X))
          {
              SavWav.Save("audio", myAudioClip);
-            
+            text.text = "";
      //        audio.Play();
         }
+     //     if (GUI.Button(new Rect(10,10,60,50),"Record"))
+     //     { 
+     //         myAudioClip = Microphone.Start ( null, false, 10, 44100 );
+
+
+     //     }
+     //     if (GUI.Button(new Rect(10,70,60,50),"Save"))
+     //     {
+     //         SavWav.Save("audio", myAudioClip);
+            
+     // //        audio.Play();
+     //    }
 
     }
 }
